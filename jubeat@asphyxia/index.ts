@@ -1,4 +1,4 @@
-import ShopInfo from "./routes/shopinfo";
+import {ShopInfo} from "./routes/shopinfo";
 import {getProfile, Getinfo, loadScore, Meeting} from "./routes/gametop";
 import {saveProfile} from "./routes/gameend";
 import {Check, Entry, Refresh, Report} from "./routes/lobby";
