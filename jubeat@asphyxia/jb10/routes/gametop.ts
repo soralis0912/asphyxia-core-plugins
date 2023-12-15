@@ -45,7 +45,7 @@ export const getProfile = async (
           name: K.ITEM('str', profile.name),
           event_flag: K.ITEM('u64', BigInt(profile.eventFlag || 0)),
 
-          ...(await require('../templates/profiles.ts')(profile)),
+          ...(await require('../templates/profiles.ts')(profile, refId)),
         },
       },
     },
