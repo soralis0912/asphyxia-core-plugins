@@ -7,7 +7,7 @@ export const Check = (
   ) => {
     const modelInfo = info.model.split(':');
     const gameRevision: number = parseInt(modelInfo[4]);
-    if(gameRevision >= 2018090501 && 2022052400){
+    if(gameRevision >= 2018090501 && gameRevision <= 2022052400){
       return Jb10GameLobby.Check(info, data, send);
     }
 };
@@ -19,7 +19,7 @@ export const Entry = (
   ) => {
     const modelInfo = info.model.split(':');
     const gameRevision: number = parseInt(modelInfo[4]);
-    if(gameRevision >= 2018090501 && 2022052400){
+    if(gameRevision >= 2018090501 && gameRevision <= 2022052400){
       return Jb10GameLobby.Entry(info, data, send);
     }
 };
@@ -31,7 +31,7 @@ export const Refresh = (
   ) => {
     const modelInfo = info.model.split(':');
     const gameRevision: number = parseInt(modelInfo[4]);
-    if(gameRevision >= 2018090501 && 2022052400){
+    if(gameRevision >= 2018090501 && gameRevision <= 2022052400){
       return Jb10GameLobby.Refresh(info, data, send);
     }
 };
@@ -43,7 +43,7 @@ export const Report = (
   ) => {
     const modelInfo = info.model.split(':');
     const gameRevision: number = parseInt(modelInfo[4]);
-    if(gameRevision >= 2018090501 && 2022052400){
+    if(gameRevision >= 2018090501 && gameRevision <= 2022052400){
       return Jb10GameLobby.Report(info, data, send);
     }
 };
