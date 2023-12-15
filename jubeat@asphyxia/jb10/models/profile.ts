@@ -5,7 +5,7 @@ export default interface Profile {
     eventFlag: number;
     name: string;
     emo: number[];
-    lastPlayTime?: number;
+    lastPlayTime?: bigint;
     lastShopname: string;
     lastAreaname: string;
     isFirstplay: boolean;

@@ -72,7 +72,7 @@ export const saveProfile = async (info, {data}, send) => {
     profile.rankSort = $(data).number("player.last.settings.rank_sort");
     profile.comboDisp = $(data).number("player.last.settings.combo_disp");
   
-    profile.lastPlayTime = Number($(data).bigint("info.play_time"));
+    profile.lastPlayTime = ($(data).bigint("info.play_time"));
     profile.lastShopname = $(data).str("info.shopname");
     profile.lastAreaname = $(data).str("info.areaname");
 
