@@ -8,6 +8,8 @@ export const getGameVersion = (info: EamuseInfo) =>
         return jubeatVersions.CLAN;
     }else if(gameRevision >= 2018090501 && gameRevision <= 2022052400){
         return jubeatVersions.FESTO;
+    }else{
+        console.log(`gameRevision [${gameRevision}] is not support`)
     }
 };
 
