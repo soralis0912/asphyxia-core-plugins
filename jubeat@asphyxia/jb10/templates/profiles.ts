@@ -18,7 +18,7 @@ module.exports = async (data: Profile) => ({
     mtg_result: K.ITEM("u8", 0),
     bonus_tune_points: K.ITEM("s32", data?.bonusPoints || 0),
     is_bonus_tune_played: K.ITEM("bool", data?.isBonusPlayed || false),
-    last_play_time: K.ITEM("s64", data?.lastPlayTime || BigInt(0),
+    last_play_time: K.ITEM("s64", data?.lastPlayTime || BigInt(0)),
   },
 
   last: {
@@ -113,6 +113,7 @@ module.exports = async (data: Profile) => ({
   server: {},
   course_list: {
       course: {}
+     
   },
   category_list: {
     category: courseCategories.map((categorie, i) =>
