@@ -2,7 +2,7 @@ import Profile from "../models/profile";
 import {Course} from "../models/course";
 import {emoList, shopList, FestoCourse, courseCategories, COURSE_STATUS} from "../static/data"
 
-module.exports = async (data: Profile) => ({
+module.exports = async (data: Profile, refId: string) => ({
   info: {
     tune_cnt: K.ITEM("s32", data?.tuneCount || 0),
     save_cnt: K.ITEM("s32", data?.saveCount || 0),
@@ -112,8 +112,18 @@ module.exports = async (data: Profile) => ({
   team_battle: {},
   server: {},
   course_list: {
-      course: {}
-     
+    course: await (async () =>{
+      let courseData = await DB.Find<Course>(refId, { collection: "course" });
+      let courseStatus = {};
+      courseData.forEach(course =>{
+        courseStatus[course.courseId] |= (course.seen ? COURSE_STATUS.SEEN : 0);
+        courseStatus[course.courseId] |= (course.played ? COURSE_STATUS.PLAYED : 0);
+        courseStatus[course.courseId] |= (course.cleared ? COURSE_STATUS.CLEARED : 0);
+      });
+      return FestoCourse.map((course, i) =>
+      K.ATTR({ id: String(i + 1) }, { status: K.ITEM("s8", courseStatus[i+1] || 0) })
+      );
+    })()
   },
   category_list: {
     category: courseCategories.map((categorie, i) =>
