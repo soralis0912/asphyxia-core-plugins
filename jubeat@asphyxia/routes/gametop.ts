@@ -10,7 +10,7 @@ export const getProfile = async (
 ) => {
   const gameVersion = utils.getGameVersion(info);
 
-  if(gameVersion == utils.jubeatVersions.FESTO){
+  if(gameVersion == utils.jubeatVersions.QUBELL){
     return await Jb8GameTop.getProfile(info, data, send);
   }else if(gameVersion == utils.jubeatVersions.FESTO){
     return await Jb10GameTop.getProfile(info, data, send);
